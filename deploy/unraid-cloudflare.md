@@ -16,8 +16,8 @@ docker compose up -d --build
 Check locally:
 
 ```bash
-curl -sS http://127.0.0.1:8080/healthz   # → ok
-curl -sSI http://127.0.0.1:8080/ | head  # → 200, text/html
+curl -sS http://127.0.0.1:1212/healthz   # → ok
+curl -sSI http://127.0.0.1:1212/ | head  # → 200, text/html
 ```
 
 ## 2. Cloudflare Tunnel
@@ -28,7 +28,7 @@ In Zero Trust → Networks → Tunnels:
 2. Add a public hostname:
    - **Hostname:** `www.gibraltarspeakers.com`
    - **Service:** `http://gibraltar-speakers:8080` if cloudflared shares the `gibraltar-speakers-web` Docker network
-   - Or `http://HOST_IP:8080` if the tunnel runs outside that network
+   - Or `http://HOST_IP:1212` if the tunnel runs outside that network
 3. TLS terminates at Cloudflare. The container speaks plain HTTP on 8080.
 
 ## 3. DNS — www vs apex

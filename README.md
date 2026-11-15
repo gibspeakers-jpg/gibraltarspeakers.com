@@ -25,8 +25,8 @@ npm run preview
 
 ```bash
 docker compose up -d --build
-# Site: http://HOST:8080
-# Health: http://HOST:8080/healthz
+# Site: http://HOST:1212
+# Health: http://HOST:1212/healthz
 ```
 
 Point the Cloudflare Tunnel public hostname `www.gibraltarspeakers.com` at `http://gibraltar-speakers:8080` (or the published host port). Full notes: [deploy/unraid-cloudflare.md](./deploy/unraid-cloudflare.md).

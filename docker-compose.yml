@@ -4,7 +4,7 @@
 # 1. docker compose up -d --build
 # 2. Point a Cloudflare Tunnel public hostname (www.gibraltarspeakers.com)
 #    to http://gibraltar-speakers:8080 on the same Docker network,
-#    OR http://HOST_IP:8080 if cloudflared runs elsewhere on the LAN.
+#    OR http://HOST_IP:1212 if cloudflared runs elsewhere on the LAN.
 #
 # Optional: uncomment the cloudflared service and set TUNNEL_TOKEN.
 
@@ -18,7 +18,7 @@ services:
     container_name: gibraltar-speakers
     restart: unless-stopped
     ports:
-      - "${HOST_PORT:-8080}:8080"
+      - "${HOST_PORT:-1212}:8080"
     networks:
       - web
 
