@@ -11,6 +11,8 @@ import {
   seo,
   siteUrl,
   openHouse,
+  isOpenHouseVisible,
+  showOpenHouse,
 } from "./site";
 
 const httpUrl = /^https?:\/\/\S+$/;
@@ -35,16 +37,25 @@ describe("openHouse", () => {
     expect(openHouse.dateLabel).toMatch(/16 November 2026/);
     expect(openHouse.addressLine).toMatch(/Irish Town/);
     expect(openHouse.timeLabel).toMatch(/6:30/);
+    expect(openHouse.visibleUntil).toBe("2026-11-16");
+  });
+
+  it("is visible through 16 Nov 2026 Europe/Gibraltar and hidden from 17 Nov", () => {
+    expect(isOpenHouseVisible(new Date("2026-11-16T12:00:00+01:00"))).toBe(true);
+    expect(isOpenHouseVisible(new Date("2026-11-16T23:30:00+01:00"))).toBe(true);
+    expect(isOpenHouseVisible(new Date("2026-11-17T00:00:00+01:00"))).toBe(false);
+    expect(isOpenHouseVisible(new Date("2026-11-17T12:00:00+01:00"))).toBe(false);
   });
 });
 
 describe("meeting", () => {
-  it("is every Monday at 19:00 at Kings Bastion Room 2", () => {
+  it("is every Monday at 19:00 at Kings Bastion without a room number", () => {
     expect(meeting.cadence).toBe("Every Monday");
     expect(meeting.day).toBe("Monday");
     expect(meeting.startTime).toBe("19:00");
     expect(meeting.venueName).toMatch(/Kings Bastion/);
-    expect(meeting.room).toBe("Room 2");
+    expect("room" in meeting).toBe(false);
+    expect(meeting.latestInfoNote).toMatch(/WhatsApp community/i);
   });
 
   it("lasts about an hour", () => {
@@ -108,12 +119,29 @@ describe("content collections", () => {
     expect(faqs.length).toBeGreaterThan(0);
     expect(faqs.some((f) => f.a.includes("£80"))).toBe(true);
     expect(faqs.some((f) => f.a.includes("14 December"))).toBe(true);
+    expect(faqs.some((f) => /Room\s*\d/i.test(f.a))).toBe(false);
+  });
+
+  it("site-facing strings use hyphen-minus, not em dashes", () => {
+    const blobs = [
+      ...faqs.map((f) => `${f.q} ${f.a}`),
+      ...benefits.map((b) => `${b.title} ${b.body}`),
+      ...meetingFormat.map((m) => `${m.title} ${m.body}`),
+      seo.title,
+      seo.description,
+      club.statusNote,
+      meeting.latestInfoNote,
+      openHouse.blurb,
+      openHouse.timeLabel,
+    ].join("\n");
+    expect(blobs).not.toMatch(/[\u2013\u2014]/);
+    expect(blobs).not.toMatch(/&mdash;|&ndash;/);
   });
 });
 
 describe("nav", () => {
-  it("includes Open House and uses anchors", () => {
-    expect(nav.some((n) => n.href === "#open-house")).toBe(true);
+  it("uses anchors and includes Open House only while active", () => {
+    expect(nav.some((n) => n.href === "#open-house")).toBe(showOpenHouse);
     for (const n of nav) {
       expect(n.href.startsWith("#")).toBe(true);
     }
@@ -125,5 +153,10 @@ describe("seo", () => {
     expect(seo.title).toMatch(/Gibraltar/);
     expect(seo.description).toMatch(/Monday/);
     expect(seo.locale).toBe("en_GB");
+    if (showOpenHouse) {
+      expect(seo.description).toMatch(/Open House/);
+    } else {
+      expect(seo.description).not.toMatch(/Open House/);
+    }
   });
 });

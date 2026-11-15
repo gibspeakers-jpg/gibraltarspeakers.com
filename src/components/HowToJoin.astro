@@ -59,8 +59,15 @@ import { links, meeting } from "../data/site";
         </div>
         <p class="mt-4 text-slate-100">
           We meet <strong class="text-happy">every Monday</strong> at
-          {meeting.startTimeLabel}, {meeting.venueName}, {meeting.room}. When you arrive, ask for
-          the <strong class="text-happy">current VP of Membership</strong> or the
+          {meeting.startTimeLabel}, {meeting.venueName}.
+          <a
+            href={links.whatsappCommunity.href}
+            rel="noopener"
+            target="_blank"
+            class="underline hover:text-happy">Join our WhatsApp community</a
+          >
+          for the latest meeting info. When you arrive, ask for the
+          <strong class="text-happy">current VP of Membership</strong> or the
           <strong class="text-happy">Club President</strong>. Totally free, totally no-pressure.
         </p>
       </li>

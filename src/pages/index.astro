@@ -10,11 +10,12 @@ import Meetings from "../components/Meetings.astro";
 import HowToJoin from "../components/HowToJoin.astro";
 import Faq from "../components/Faq.astro";
 import Contact from "../components/Contact.astro";
+import { showOpenHouse } from "../data/site";
 ---
 
 <Base>
   <Hero />
-  <OpenHouse />
+  {showOpenHouse && <OpenHouse />}
   <WhyJoin />
   <WhatHappens />
   <Pricing />

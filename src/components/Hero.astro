@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import heroImage from "../assets/images/gallery/club-group-meeting.jpg";
 import logo from "../assets/images/club-logo.png";
-import { club, meeting, links, openHouse } from "../data/site";
+import { club, meeting, links, openHouse, showOpenHouse } from "../data/site";
 ---
 
 <section id="top" class="relative isolate overflow-hidden bg-cyan-700 text-white">
@@ -43,12 +43,26 @@ import { club, meeting, links, openHouse } from "../data/site";
         <strong class="font-semibold text-happy">Your first visit is always free.</strong>
       </p>
 
-      <p class="mt-3 max-w-2xl text-base text-slate-200/90">
-        Open House {openHouse.dateLabel} at GFSB — or join us any Monday evening.
-      </p>
+      {
+        showOpenHouse ? (
+          <p class="mt-3 max-w-2xl text-base text-slate-200/90">
+            Open House {openHouse.dateLabel} at GFSB - or join us any Monday evening.
+          </p>
+        ) : (
+          <p class="mt-3 max-w-2xl text-base text-slate-200/90">
+            Join us any Monday evening. {meeting.latestInfoNote}
+          </p>
+        )
+      }
 
       <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <a href="#open-house" class="btn-primary"> Open House details </a>
+        {
+          showOpenHouse && (
+            <a href="#open-house" class="btn-primary">
+              Open House details
+            </a>
+          )
+        }
         <a
           href={links.email.href}
           class="btn-secondary border-white/40 bg-white/10 text-white hover:bg-white/20"
@@ -71,7 +85,7 @@ import { club, meeting, links, openHouse } from "../data/site";
         </div>
         <div>
           <dt class="text-slate-300">Cost</dt>
-          <dd class="font-semibold">Guests — free</dd>
+          <dd class="font-semibold">Guests - free</dd>
         </div>
       </dl>
     </div>

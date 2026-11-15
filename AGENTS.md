@@ -15,9 +15,10 @@ Astro + Tailwind. Content SSOT: `src/data/site.ts`. Docker multi-stage → nginx
 
 ## Locked meeting facts
 
-- Every Monday 19:00 · Kings Bastion Leisure Centre, Line Wall Road, Room 2
+- Every Monday 19:00 · Kings Bastion Leisure Centre, Line Wall Road (no room number; WhatsApp for latest info)
 - Holiday break: last session 14 Dec → return 11 Jan
-- Open House focus when active (see `openHouse` in `site.ts`)
+- Open House marketing auto-hides from 17 Nov 2026 Europe/Gibraltar (`showOpenHouse` in `site.ts`)
+- Site-facing copy uses hyphen-minus `-`, not em dashes
 - Pricing: less than £12/month; £80 first 6 months
 - Socials: Facebook + LinkedIn only (no Instagram / no Find-a-Club)
 - British English; brand colours from club logo (dark blue, maroon, gold)
