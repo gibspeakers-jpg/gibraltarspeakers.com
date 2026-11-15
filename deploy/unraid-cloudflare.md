@@ -51,9 +51,27 @@ Until that choice is locked, keep Option A and the current `www` canonical.
 
 ## 4. Rebuild after content edits
 
+Pull latest `main`, then force a clean image rebuild (Docker layer cache can otherwise keep an old Astro `dist/`):
+
 ```bash
-docker compose up -d --build
+cd /path/to/gibraltarspeakers.com
+git fetch origin && git checkout main && git pull --ff-only origin main
+git rev-parse --short HEAD   # expect baad1b0 or newer
+docker compose build --no-cache
+docker compose up -d --force-recreate
 ```
+
+**Verify the container itself** (bypass Cloudflare) before checking the public URL:
+
+```bash
+curl -sS http://127.0.0.1:1212/ | grep -o 'name="site-version" content="[^"]*"'
+# expect: name="site-version" content="1.0.4" (or newer)
+
+curl -sS http://127.0.0.1:1212/ | grep -E 'Marbella|Room 2|90 minutes' || echo 'old strings gone'
+curl -sS http://127.0.0.1:1212/ | grep -o 'About an hour' | head -1
+```
+
+If localhost looks correct but `www.gibraltarspeakers.com` does not, the tunnel is pointing at another container/port, or purge Cloudflare cache for `/`.
 
 ## 5. Why this works with Cloudflare Tunnel
 
