@@ -2,7 +2,7 @@
 
 Static marketing site for **Gibraltar Speakers Toastmasters Club** (club #7961326), hosted at [www.gibraltarspeakers.com](https://www.gibraltarspeakers.com).
 
-Built with [Astro](https://astro.build/) + Tailwind. Adapted from the [Marbella Achievers](https://github.com/marbellaachievers/marbellaachievers.github.io) site (Apache-2.0).
+Built with [Astro](https://astro.build/) + Tailwind.
 
 **Repo:** https://github.com/gibspeakers-jpg/gibraltarspeakers.com  
 **Production target:** Unraid Docker container + Cloudflare Tunnel (not GitHub Pages).
@@ -38,7 +38,7 @@ Point the Cloudflare Tunnel public hostname `www.gibraltarspeakers.com` at `http
 - `src/layouts/Base.astro` — shared `<head>`, JSON-LD, nav, footer
 - `docker/` + `Dockerfile` + `docker-compose.yml` — nginx static serve on port 8080
 - [AGENTS.md](./AGENTS.md) — design and content brief
-- [NOTICE](./NOTICE) — Apache-2.0 attribution to Marbella Achievers
+- [NOTICE](./NOTICE) — Apache-2.0 attribution (licence compliance)
 
 ## Licence
 

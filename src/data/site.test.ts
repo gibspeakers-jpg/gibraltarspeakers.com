@@ -47,6 +47,11 @@ describe("meeting", () => {
     expect(meeting.room).toBe("Room 2");
   });
 
+  it("lasts about an hour", () => {
+    expect(meeting.durationMinutes).toBe(60);
+    expect(meeting.durationLabel).toMatch(/about an hour/i);
+  });
+
   it("documents Dec/Jan holiday break", () => {
     expect(meeting.holidayBreak).toMatch(/14 December/);
     expect(meeting.holidayBreak).toMatch(/11 January/);

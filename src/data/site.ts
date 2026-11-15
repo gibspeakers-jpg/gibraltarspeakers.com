@@ -39,8 +39,8 @@ export const meeting = {
   startTimeLabel: "7:00 PM",
   arriveBy: "18:45",
   arriveByLabel: "6:45 PM",
-  durationMinutes: 90,
-  durationLabel: "About 90 minutes (plus or minus 15)",
+  durationMinutes: 60,
+  durationLabel: "About an hour",
   venueName: "Kings Bastion Leisure Centre",
   venueSubtitle: "Line Wall Road, Gibraltar",
   room: "Room 2",
@@ -146,7 +146,7 @@ export const faqs = [
   },
   {
     q: "How long is a meeting?",
-    a: "About 90 minutes (plus or minus 15). We start at 7:00 PM, so please try to arrive by 6:45 PM.",
+    a: "About an hour. We start at 7:00 PM, so please try to arrive by 6:45 PM.",
   },
   {
     q: "When and where do you meet?",

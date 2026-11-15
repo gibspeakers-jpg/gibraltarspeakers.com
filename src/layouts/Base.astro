@@ -40,7 +40,7 @@ const jsonLdEvent = {
     repeatFrequency: "P1W",
     byDay: "https://schema.org/Monday",
     startTime: meeting.startTime,
-    duration: "PT90M",
+    duration: `PT${meeting.durationMinutes}M`,
     scheduleTimezone: "Europe/Gibraltar",
   },
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
