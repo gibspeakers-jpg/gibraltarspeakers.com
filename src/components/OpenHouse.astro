@@ -1,0 +1,46 @@
+---
+import { openHouse, links } from "../data/site";
+---
+
+<section id="open-house" class="section bg-happy/30">
+  <div class="container mx-auto max-w-5xl">
+    <div class="rounded-3xl bg-cyan-700 px-6 py-10 text-white shadow-lg sm:px-10 sm:py-12">
+      <p class="section-eyebrow text-happy">Open House</p>
+      <h2 class="section-heading text-white">
+        {openHouse.theme} — {openHouse.dateLabel}
+      </h2>
+      <p class="mt-4 max-w-2xl text-lg text-slate-100">{openHouse.blurb}</p>
+
+      <dl class="mt-8 grid gap-4 sm:grid-cols-3">
+        <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15">
+          <dt class="text-sm text-slate-300">When</dt>
+          <dd class="mt-1 font-semibold">
+            {openHouse.dateLabel}<br />
+            {openHouse.timeLabel}
+          </dd>
+        </div>
+        <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 sm:col-span-2">
+          <dt class="text-sm text-slate-300">Where</dt>
+          <dd class="mt-1 font-semibold">
+            {openHouse.venueName}<br />
+            <span class="font-normal text-slate-200">{openHouse.addressLine}</span>
+          </dd>
+        </div>
+      </dl>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a href={links.email.href} class="btn-primary bg-white !text-maroon hover:bg-happy">
+          Email to register your interest
+        </a>
+        <a href={links.whatsappCommunity.href} rel="noopener" target="_blank" class="btn-whatsapp">
+          Join our WhatsApp community
+        </a>
+      </div>
+
+      <p class="mt-6 text-sm text-slate-200">
+        Can&rsquo;t make the Open House? Regular meetings are every Monday at 7:00 PM at Kings
+        Bastion — guests are always welcome.
+      </p>
+    </div>
+  </div>
+</section>

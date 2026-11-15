@@ -17,48 +17,48 @@ export const club = {
   division: "E",
   tagline: "Where Leaders Are Made",
   statusNote:
-    "We are revitalising the club and welcoming new and returning members. Email us for the next meeting details.",
+    "Join our Open House to experience a meeting — or email us to visit any Monday evening.",
+} as const;
+
+export const openHouse = {
+  theme: "Find Your Voice",
+  dateLabel: "Monday 16 November 2026",
+  startTime: "18:30",
+  endTime: "20:00",
+  timeLabel: "6:30–8:00 PM",
+  venueName: "Gibraltar Federation of Small Businesses (GFSB)",
+  addressLine: "122 Irish Town, Gibraltar",
+  blurb:
+    "See a Toastmasters meeting in action — prepared speeches, Table Topics, and a warm welcome. Free to attend; no pressure to speak.",
 } as const;
 
 export const meeting = {
-  /** Human-readable cadence (not every Monday). */
-  cadence: "2nd & 4th Monday of each month",
+  cadence: "Every Monday",
   day: "Monday",
-  startTime: "18:30",
-  startTimeLabel: "6:30 PM",
-  arriveBy: "18:15",
-  arriveByLabel: "6:15 PM",
+  startTime: "19:00",
+  startTimeLabel: "7:00 PM",
+  arriveBy: "18:45",
+  arriveByLabel: "6:45 PM",
   durationMinutes: 90,
   durationLabel: "About 90 minutes (plus or minus 15)",
   venueName: "Kings Bastion Leisure Centre",
-  venueSubtitle: "Usual venue — please email to confirm before your first visit",
-  room: "Room 2 (confirm on the day)",
+  venueSubtitle: "Line Wall Road, Gibraltar",
+  room: "Room 2",
   addressLine: "Line Wall Road, Gibraltar GX11 1AA",
   geo: { latitude: 36.1408, longitude: -5.3536 },
-  holidayBreak:
-    "We pause on Gibraltar public holidays. Email us if you are unsure whether a Monday meeting is on.",
-  postMeeting:
-    "Guests are welcome to stay and chat after the meeting — a friendly, low-pressure way to meet members.",
+  holidayBreak: "Last meeting of the year: Monday 14 December. We return Monday 11 January.",
   mapEmbedSrc:
     "https://maps.google.com/maps?q=Kings%20Bastion%20Leisure%20Centre%2C%20Line%20Wall%20Road%2C%20Gibraltar&z=16&output=embed",
   directionsUrl:
     "https://www.google.com/maps/search/?api=1&query=Kings+Bastion+Leisure+Centre+Line+Wall+Road+Gibraltar",
-  confirmBeforeVisit: true,
 } as const;
 
 export const costs = {
-  headline: "Affordable practice — Toastmasters is a non-profit.",
-  intlDuesAmount: "$60 USD",
-  intlDuesPeriod: "every 6 months",
-  intlDuesNote: "Toastmasters International membership dues",
-  localFeeAmount: "Confirmed on joining",
-  localFeePeriod: "every 6 months",
-  localFeeNote: "Local club fee in GBP — exact amount confirmed by the treasurer when you join",
-  joiningFeeAmount: "$25 USD",
-  joiningFeePeriod: "one-time",
-  joiningFeeNote: "New-member fee — only if you have never joined Toastmasters before",
-  firstSixMonthsNote:
-    "International dues and the one-time joining fee apply as set by Toastmasters International. Local dues are kept modest and confirmed when you join.",
+  headline: "Less than £12 a month",
+  firstSixMonthsAmount: "£80",
+  firstSixMonthsPeriod: "first 6 months",
+  firstSixMonthsNote: "£80 for your first 6 months as a new member.",
+  ongoingNote: "After that, membership works out to less than £12 a month.",
   nonprofitNote:
     "Toastmasters is a registered non-profit. Every fee goes back into the programme, learning materials, and running the club — nobody profits.",
 } as const;
@@ -66,22 +66,24 @@ export const costs = {
 export const links = {
   email: {
     label: "Email us",
-    href: "mailto:GibSpeakers@gmail.com?subject=I%27d%20like%20to%20visit%20a%20meeting",
-    display: "GibSpeakers@gmail.com",
+    href: "mailto:info@gibraltarspeakers.com?subject=I%27d%20like%20to%20visit%20a%20meeting",
+    display: "info@gibraltarspeakers.com",
   },
-  toastmastersDirectory: {
-    label: "Find us on Toastmasters.org",
-    // Directory currently 404 while club rebuilds; keep short number form for when it returns.
-    href: "https://www.toastmasters.org/Find-a-Club/7961326-gibraltar-speakers",
-    available: false,
+  whatsappCommunity: {
+    label: "Join our WhatsApp community",
+    href: "https://chat.whatsapp.com/CtmsqjINUmw265kCaplX17",
+  },
+  facebook: {
+    label: "Facebook",
+    href: "https://www.facebook.com/GibraltarToastmasters",
   },
   linkedin: {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/gibraltar-speakers-toastmasters-club/",
+    href: "https://www.linkedin.com/company/gibraltar-speakers-toastmasters-club",
   },
   github: {
     label: "GitHub repository",
-    href: "https://github.com/bingofishgame-web/gibraltar-speakers",
+    href: "https://github.com/gibspeakers-jpg/gibraltarspeakers.com",
   },
 } as const;
 
@@ -113,7 +115,7 @@ export const benefits = [
   },
   {
     title: "Real progress, fair cost",
-    body: "Regular practice for a non-profit fee. Compare that to a single coaching session and the value becomes obvious.",
+    body: "Weekly practice for less than £12 a month. Compare that to a single coaching session and the value becomes obvious.",
     icon: "coin",
   },
 ] as const;
@@ -144,11 +146,11 @@ export const faqs = [
   },
   {
     q: "How long is a meeting?",
-    a: "About 90 minutes (plus or minus 15). We aim to start at 6:30 PM, so please try to arrive by 6:15 PM.",
+    a: "About 90 minutes (plus or minus 15). We start at 7:00 PM, so please try to arrive by 6:45 PM.",
   },
   {
     q: "When and where do you meet?",
-    a: "Historically on the 2nd and 4th Monday of each month at Kings Bastion Leisure Centre, Line Wall Road. Because we are revitalising the club, please email GibSpeakers@gmail.com before your first visit so we can confirm the next date and room.",
+    a: "Every Monday at 7:00 PM at Kings Bastion Leisure Centre, Line Wall Road, Room 2. Guests are welcome — email info@gibraltarspeakers.com or join our WhatsApp community so we know you are coming.",
   },
   {
     q: "What language are meetings in?",
@@ -156,11 +158,15 @@ export const faqs = [
   },
   {
     q: "How much does it cost?",
-    a: "Toastmasters International dues are $60 USD every 6 months. New members also pay a one-time $25 USD joining fee if you have never been in Toastmasters before. Local club dues are confirmed when you join. Toastmasters is a non-profit — these fees cover materials and the cost of running the organisation.",
+    a: "Less than £12 a month. New members pay £80 for the first 6 months. Toastmasters is a non-profit — fees cover materials and the cost of running the club.",
   },
   {
     q: "Do I have to commit for a long time?",
-    a: "Not at all. Guest visits are free and there is no commitment. Membership is paid every six months, so you can always step away at the next renewal.",
+    a: "Not at all. Guest visits are free and there is no commitment. Membership is paid in six-month periods, so you can always step away at the next renewal.",
+  },
+  {
+    q: "Do you meet over the holidays?",
+    a: "Our last meeting of the year is Monday 14 December. We return Monday 11 January.",
   },
   {
     q: "What is Pathways?",
@@ -173,6 +179,7 @@ export const faqs = [
 ] as const;
 
 export const nav = [
+  { href: "#open-house", label: "Open House" },
   { href: "#why-join", label: "Why join" },
   { href: "#what-happens", label: "What happens" },
   { href: "#pricing", label: "Pricing" },
@@ -185,14 +192,14 @@ export const nav = [
 export const seo = {
   title: "Gibraltar Speakers Toastmasters — Public Speaking & Leadership Club",
   description:
-    "Gibraltar's English-speaking Toastmasters club. Guests welcome — first visit free. Build confidence, public speaking, and leadership skills on the Rock.",
+    "Gibraltar's English-speaking Toastmasters club. Every Monday 7 PM at Kings Bastion. Open House 16 November 2026. First visit free.",
   keywords: [
     "Toastmasters Gibraltar",
     "public speaking Gibraltar",
     "English speaking club Gibraltar",
     "leadership training Gibraltar",
     "Gibraltar Speakers Toastmasters",
-    "public speaking classes Gibraltar",
+    "Open House Toastmasters Gibraltar",
   ],
   ogImage: "/og-image.jpg",
   twitterCard: "summary_large_image",

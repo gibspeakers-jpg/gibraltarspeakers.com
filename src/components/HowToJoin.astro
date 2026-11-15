@@ -19,18 +19,34 @@ import { links, meeting } from "../data/site";
             class="flex h-10 w-10 items-center justify-center rounded-full bg-happy text-lg font-bold text-slate-900"
             >1</span
           >
-          <h3 class="font-display text-xl font-bold text-white">Email us</h3>
+          <h3 class="font-display text-xl font-bold text-white">Say hello</h3>
         </div>
         <p class="mt-4 text-slate-100">
-          Drop a note to <strong class="text-happy">{links.email.display}</strong> and tell us you&rsquo;d
-          like to visit. We&rsquo;ll confirm the next date, time, and room so you are expected.
+          Email <strong class="text-happy">{links.email.display}</strong> or
+          <a
+            href={links.whatsappCommunity.href}
+            rel="noopener"
+            target="_blank"
+            class="underline hover:text-happy">join our WhatsApp community</a
+          >
+          and tell us you&rsquo;d like to visit. We&rsquo;ll be expecting you.
         </p>
-        <a
-          href={links.email.href}
-          class="btn-primary mt-5 bg-white !text-maroon hover:bg-happy hover:!text-slate-900"
-        >
-          Email GibSpeakers@gmail.com
-        </a>
+        <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={links.email.href}
+            class="btn-primary bg-white !text-maroon hover:bg-happy hover:!text-slate-900"
+          >
+            Email us
+          </a>
+          <a
+            href={links.whatsappCommunity.href}
+            rel="noopener"
+            target="_blank"
+            class="btn-whatsapp"
+          >
+            WhatsApp community
+          </a>
+        </div>
       </li>
 
       <li class="rounded-2xl bg-white/10 p-6 ring-1 ring-white/15 backdrop-blur">
@@ -39,26 +55,15 @@ import { links, meeting } from "../data/site";
             class="flex h-10 w-10 items-center justify-center rounded-full bg-happy text-lg font-bold text-slate-900"
             >2</span
           >
-          <h3 class="font-display text-xl font-bold text-white">Come along on a meeting Monday</h3>
+          <h3 class="font-display text-xl font-bold text-white">Come along on a Monday</h3>
         </div>
         <p class="mt-4 text-slate-100">
-          We meet on the <strong class="text-happy">{meeting.cadence}</strong>. When you arrive, ask
-          for the <strong class="text-happy">current VP of Membership</strong> or the
-          <strong class="text-happy">Club President</strong>. They will walk you through the short
-          application and answer anything you want to know. Totally free, totally no-pressure.
+          We meet <strong class="text-happy">{meeting.cadence.toLowerCase()}</strong> at
+          {meeting.startTimeLabel}, {meeting.venueName}, {meeting.room}. When you arrive, ask for
+          the <strong class="text-happy">current VP of Membership</strong> or the
+          <strong class="text-happy">Club President</strong>. Totally free, totally no-pressure.
         </p>
       </li>
     </ol>
-
-    <p class="mt-8 text-sm text-slate-200">
-      Prefer LinkedIn first?
-      <a
-        href={links.linkedin.href}
-        rel="noopener"
-        target="_blank"
-        class="underline hover:text-happy">Send us a message there</a
-      >
-      — introduce yourself; we love knowing who&rsquo;s new.
-    </p>
   </div>
 </section>

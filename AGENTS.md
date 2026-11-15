@@ -1,47 +1,27 @@
 # AGENTS.md — Gibraltar Speakers Toastmasters Website
 
-Canonical brief for contributors. Update when decisions change.
+Canonical brief. Update when decisions change.
 
-## 1. Project overview
+## Overview
 
-**Goal:** Fast, static, SEO-optimised marketing site for **Gibraltar Speakers Toastmasters Club**. Single purpose: turn visitors into first-time meeting guests.
+Conversion-focused static marketing site for **Gibraltar Speakers Toastmasters Club** (#7961326).
 
-**Audience:** Adults in Gibraltar seeking public-speaking practice, leadership development, or a welcoming community.
+**Primary CTAs:** email `info@gibraltarspeakers.com` and WhatsApp community invite.
+**Hosting:** Unraid Docker (nginx :8080) + Cloudflare Tunnel → `www.gibraltarspeakers.com`.
 
-**Primary conversion:** Email **GibSpeakers@gmail.com** to arrange a visit. Secondary: LinkedIn.
+## Stack
 
-**Hosting:** Unraid Docker (nginx) + Cloudflare Tunnel → `www.gibraltarspeakers.com`.
+Astro + Tailwind. Content SSOT: `src/data/site.ts`. Docker multi-stage → nginx.
 
-**Non-goals for v1:** blog, member portal, ticketing, CMS, analytics, WhatsApp (until a club number is confirmed).
+## Locked meeting facts
 
-## 2. Tech stack & deploy
+- Every Monday 19:00 · Kings Bastion Leisure Centre, Line Wall Road, Room 2
+- Holiday break: last session 14 Dec → return 11 Jan
+- Open House focus when active (see `openHouse` in `site.ts`)
+- Pricing: less than £12/month; £80 first 6 months
+- Socials: Facebook + LinkedIn only (no Instagram / no Find-a-Club)
+- British English; brand colours from club logo (dark blue, maroon, gold)
 
-- Astro + TypeScript + Tailwind
-- Content SSOT: `src/data/site.ts`
-- Docker multi-stage → nginx on port **8080**
-- `PUBLIC_SITE_URL` / `siteUrl` = `https://www.gibraltarspeakers.com`
-- Relative asset paths only — required for Cloudflare Tunnel
+## Non-goals v1
 
-## 3. Information architecture
-
-Same section order as the Marbella Achievers clone: Hero → WhyJoin → WhatHappens → Pricing → About → Meetings → HowToJoin → FAQ → Contact → Footer.
-
-## 4. Content notes (provisional)
-
-- Club #7961326 · District 107 · Division E · Area 1 · chartered Aug 2022
-- Cadence: 2nd & 4th Monday ~18:30 · Kings Bastion Leisure Centre (confirm before publishing changes)
-- Toastmasters.org directory may 404 while revitalising — do not make it the primary CTA until live
-- British English
-- Toastmasters brand colours (maroon / cyan / happy yellow)
-
-## 5. Design
-
-- Keep Marbella visual system (TM colours, Montserrat + Source Sans 3 via fonts.bunny.net)
-- Mobile-first; WCAG AA; Lighthouse mobile ≥ 95 where practical
-- Replace placeholder Rock graphic / logo when club photos and logo are approved
-
-## 6. For future agents
-
-- Edit `site.ts` first for any meeting, fee, or link change
-- Never hardcode contact details in components
-- Rebuild the Docker image after content changes for Unraid
+Blog, member portal, CMS, analytics, inventing brand colours beyond the logo palette.

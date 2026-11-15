@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import heroImage from "../assets/images/gibraltar-rock.jpg";
 import logo from "../assets/images/club-logo.png";
-import { club, meeting, links } from "../data/site";
+import { club, meeting, links, openHouse } from "../data/site";
 ---
 
 <section id="top" class="relative isolate overflow-hidden bg-cyan-700 text-white">
@@ -27,7 +27,7 @@ import { club, meeting, links } from "../data/site";
       <div
         class="mb-6 inline-flex items-center gap-3 rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold backdrop-blur"
       >
-        <Image src={logo} alt="" width={28} height={28} class="h-7 w-7 rounded" />
+        <Image src={logo} alt="" width={36} height={36} class="h-9 w-9 rounded-full bg-white" />
         <span>{club.shortName} Toastmasters &middot; {club.city}</span>
       </div>
 
@@ -38,28 +38,32 @@ import { club, meeting, links } from "../data/site";
 
       <p class="mt-6 max-w-2xl text-lg text-slate-100 sm:text-xl">
         Public speaking and leadership practice in a friendly English-speaking club on the Rock. We
-        meet on the {meeting.cadence}.
+        meet <strong class="font-semibold">{meeting.cadence.toLowerCase()}</strong> at
+        {meeting.startTimeLabel}.
         <strong class="font-semibold text-happy">Your first visit is always free.</strong>
       </p>
 
-      <p class="mt-3 max-w-2xl text-base text-slate-200/90">{club.statusNote}</p>
+      <p class="mt-3 max-w-2xl text-base text-slate-200/90">
+        Open House {openHouse.dateLabel} at GFSB — or join us any Monday evening.
+      </p>
 
       <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <a href={links.email.href} class="btn-primary"> Email us to visit — it&rsquo;s free </a>
+        <a href="#open-house" class="btn-primary"> Open House details </a>
         <a
-          href={links.linkedin.href}
-          rel="noopener"
-          target="_blank"
+          href={links.email.href}
           class="btn-secondary border-white/40 bg-white/10 text-white hover:bg-white/20"
         >
-          Follow us on LinkedIn
+          Email us to visit
+        </a>
+        <a href={links.whatsappCommunity.href} rel="noopener" target="_blank" class="btn-whatsapp">
+          Join our WhatsApp community
         </a>
       </div>
 
       <dl class="mt-10 grid max-w-xl grid-cols-3 gap-4 text-sm sm:gap-6 sm:text-base">
         <div>
           <dt class="text-slate-300">When</dt>
-          <dd class="font-semibold">{meeting.cadence}</dd>
+          <dd class="font-semibold">{meeting.cadence}, {meeting.startTimeLabel}</dd>
         </div>
         <div>
           <dt class="text-slate-300">Where</dt>

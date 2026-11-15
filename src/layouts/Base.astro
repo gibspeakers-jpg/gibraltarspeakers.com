@@ -19,7 +19,7 @@ const jsonLdOrganization = {
   alternateName: club.officialName,
   url: siteUrl,
   logo: new URL("/favicon.png", siteUrl).toString(),
-  sameAs: [links.linkedin.href, links.toastmastersDirectory.href],
+  sameAs: [links.facebook.href, links.linkedin.href, links.whatsappCommunity.href],
   foundingDate: club.chartered,
   address: {
     "@type": "PostalAddress",
@@ -27,18 +27,17 @@ const jsonLdOrganization = {
     addressLocality: club.city,
     addressCountry: "GI",
   },
-  email: "GibSpeakers@gmail.com",
+  email: links.email.display,
 };
 
 const jsonLdEvent = {
   "@context": "https://schema.org",
   "@type": "Event",
-  name: `${club.shortName} Meeting`,
-  description:
-    "Toastmasters meeting on the 2nd and 4th Monday of each month. Guests welcome — first visit free. Email to confirm venue.",
+  name: `${club.shortName} Weekly Meeting`,
+  description: "Toastmasters meeting every Monday at 7:00 PM. Guests welcome — first visit free.",
   eventSchedule: {
     "@type": "Schedule",
-    repeatFrequency: "P2W",
+    repeatFrequency: "P1W",
     byDay: "https://schema.org/Monday",
     startTime: meeting.startTime,
     duration: "PT90M",
@@ -72,7 +71,7 @@ const jsonLdEvent = {
     price: "0",
     priceCurrency: "GBP",
     availability: "https://schema.org/InStock",
-    url: links.email.href,
+    url: siteUrl,
   },
 };
 ---
@@ -101,8 +100,7 @@ const jsonLdEvent = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(seo.ogImage, siteUrl).toString()} />
 
-    <meta name="theme-color" content="#772432" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#004165" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 

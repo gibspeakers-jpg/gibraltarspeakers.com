@@ -9,25 +9,29 @@ import { links } from "../data/site";
       <p class="section-eyebrow">Contact &amp; visit</p>
       <h2 class="section-heading">Guests are welcome — always.</h2>
       <p class="mt-4 text-lg text-slate-600">
-        Come and check us out, no strings attached. If you have questions, email us or find us on
-        LinkedIn — we are happy to help you plan your first visit.
+        Come and check us out, no strings attached. Email us or join our WhatsApp community — we are
+        happy to help you plan your first visit.
       </p>
     </div>
 
     <div class="mt-10 grid gap-4 md:grid-cols-2">
       <a href={links.email.href} class="card block border-happy/60 bg-happy/20">
-        <p class="text-sm font-semibold uppercase tracking-widest text-maroon">Primary</p>
+        <p class="text-sm font-semibold uppercase tracking-widest text-maroon">Email</p>
         <h3 class="mt-2 font-display text-xl font-bold text-slate-900">Email us</h3>
         <p class="mt-2 text-slate-600">
-          Tell us you&rsquo;d like to visit — we&rsquo;ll confirm the next meeting date and venue.
+          Tell us you&rsquo;d like to visit — we&rsquo;ll confirm the next meeting and welcome you.
         </p>
         <p class="mt-3 text-sm text-slate-500">{links.email.display}</p>
       </a>
 
-      <a href={links.linkedin.href} rel="noopener" target="_blank" class="card block">
-        <p class="text-sm font-semibold uppercase tracking-widest text-maroon">Prefer social?</p>
-        <h3 class="mt-2 font-display text-xl font-bold text-slate-900">LinkedIn</h3>
-        <p class="mt-2 text-slate-600">Follow club updates and Open House announcements.</p>
+      <a href={links.whatsappCommunity.href} rel="noopener" target="_blank" class="card block">
+        <p class="text-sm font-semibold uppercase tracking-widest text-maroon">WhatsApp</p>
+        <h3 class="mt-2 font-display text-xl font-bold text-slate-900">
+          Join our WhatsApp community
+        </h3>
+        <p class="mt-2 text-slate-600">
+          Introduce yourself when you join — we love knowing who&rsquo;s new.
+        </p>
       </a>
     </div>
 

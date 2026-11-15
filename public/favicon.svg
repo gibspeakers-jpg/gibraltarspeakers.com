@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-label="Gibraltar Speakers">
-  <rect width="64" height="64" rx="12" fill="#772432"/>
-  <circle cx="32" cy="32" r="22" fill="none" stroke="#004165" stroke-width="3"/>
-  <path d="M18 40 V24 L26 36 L34 24 V40" fill="none" stroke="#F2DF74" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M40 24 C48 24 48 32 40 32 C48 32 48 40 40 40" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
-</svg>
