@@ -1,0 +1,40 @@
+# Unraid / local: static site behind Cloudflare Tunnel.
+#
+# Typical Unraid flow:
+# 1. docker compose up -d --build
+# 2. Point a Cloudflare Tunnel public hostname (www.gibraltarspeakers.com)
+#    to http://gibraltar-speakers:8080 on the same Docker network,
+#    OR http://HOST_IP:8080 if cloudflared runs elsewhere on the LAN.
+#
+# Optional: uncomment the cloudflared service and set TUNNEL_TOKEN.
+
+services:
+  gibraltar-speakers:
+    build:
+      context: .
+      args:
+        PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-https://www.gibraltarspeakers.com}
+    image: gibraltar-speakers:local
+    container_name: gibraltar-speakers
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-8080}:8080"
+    networks:
+      - web
+
+  # Optional sidecar when you prefer docker-managed cloudflared over the Unraid plugin.
+  # cloudflared:
+  #   image: cloudflare/cloudflared:latest
+  #   container_name: gibraltar-speakers-tunnel
+  #   restart: unless-stopped
+  #   command: tunnel --no-autoupdate run
+  #   environment:
+  #     TUNNEL_TOKEN: ${TUNNEL_TOKEN}
+  #   networks:
+  #     - web
+  #   depends_on:
+  #     - gibraltar-speakers
+
+networks:
+  web:
+    name: gibraltar-speakers-web

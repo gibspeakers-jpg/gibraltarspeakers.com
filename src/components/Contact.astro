@@ -1,0 +1,41 @@
+---
+import SocialRow from "./SocialRow.astro";
+import { links } from "../data/site";
+---
+
+<section id="contact" class="section bg-white">
+  <div class="container mx-auto max-w-5xl">
+    <div class="max-w-2xl">
+      <p class="section-eyebrow">Contact &amp; visit</p>
+      <h2 class="section-heading">Guests are welcome — always.</h2>
+      <p class="mt-4 text-lg text-slate-600">
+        Come and check us out, no strings attached. If you have questions, email us or find us on
+        LinkedIn — we are happy to help you plan your first visit.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+      <a href={links.email.href} class="card block border-happy/60 bg-happy/20">
+        <p class="text-sm font-semibold uppercase tracking-widest text-maroon">Primary</p>
+        <h3 class="mt-2 font-display text-xl font-bold text-slate-900">Email us</h3>
+        <p class="mt-2 text-slate-600">
+          Tell us you&rsquo;d like to visit — we&rsquo;ll confirm the next meeting date and venue.
+        </p>
+        <p class="mt-3 text-sm text-slate-500">{links.email.display}</p>
+      </a>
+
+      <a href={links.linkedin.href} rel="noopener" target="_blank" class="card block">
+        <p class="text-sm font-semibold uppercase tracking-widest text-maroon">Prefer social?</p>
+        <h3 class="mt-2 font-display text-xl font-bold text-slate-900">LinkedIn</h3>
+        <p class="mt-2 text-slate-600">Follow club updates and Open House announcements.</p>
+      </a>
+    </div>
+
+    <div
+      class="mt-10 flex flex-col items-start justify-between gap-4 rounded-2xl bg-slate-50 p-6 sm:flex-row sm:items-center"
+    >
+      <p class="font-display text-lg font-bold text-slate-900">You&rsquo;ll also find us on</p>
+      <SocialRow />
+    </div>
+  </div>
+</section>
