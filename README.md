@@ -4,6 +4,7 @@ Static marketing site for **Gibraltar Speakers Toastmasters Club** (club #796132
 
 Built with [Astro](https://astro.build/) + Tailwind. Adapted from the [Marbella Achievers](https://github.com/marbellaachievers/marbellaachievers.github.io) site (Apache-2.0).
 
+**Repo:** https://github.com/gibspeakers-jpg/gibraltarspeakers.com  
 **Production target:** Unraid Docker container + Cloudflare Tunnel (not GitHub Pages).
 
 ## Develop
