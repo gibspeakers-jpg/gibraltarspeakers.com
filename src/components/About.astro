@@ -1,31 +1,60 @@
 ---
 import { Image } from "astro:assets";
-import rock from "../assets/images/gibraltar-rock.jpg";
-import logo from "../assets/images/club-logo.png";
-import tmLogo from "../assets/images/toastmasters-logo@2x.png";
+import paulMedal from "../assets/images/gallery/paul-table-topics-3rd.jpg";
+import paulFlag from "../assets/images/gallery/paul-gibraltar-flag-summit.jpg";
+import clubHalloween from "../assets/images/gallery/club-group-halloween.jpg";
+import clubMeeting from "../assets/images/gallery/club-group-meeting.jpg";
 import { club } from "../data/site";
 
 const charteredLabel = new Date(club.chartered).toLocaleDateString("en-GB", {
   year: "numeric",
   month: "long",
 });
+
+const gallery = [
+  {
+    src: clubMeeting,
+    alt: "Gibraltar Speakers Toastmasters members together at a club meeting",
+    class: "aspect-[3/4] object-cover",
+  },
+  {
+    src: paulMedal,
+    alt: "Paul Gache with his third-place medal and certificate from the District 107 Table Topics Contest, Fall Summit 2024 in Mallorca",
+    class: "aspect-[3/4] object-cover",
+  },
+  {
+    src: clubHalloween,
+    alt: "Gibraltar Speakers members posing together after a themed club meeting",
+    class: "aspect-[4/3] object-cover",
+  },
+  {
+    src: paulFlag,
+    alt: "Paul representing Gibraltar with the Gibraltar flag at the Toastmasters District 107 Fall Summit in Mallorca",
+    class: "aspect-[3/4] object-cover",
+  },
+];
 ---
 
 <section id="about" class="section bg-[--color-paper]">
   <div class="container mx-auto max-w-6xl">
-    <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+    <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
       <div>
         <p class="section-eyebrow">About the club</p>
         <h2 class="section-heading">Gibraltar&rsquo;s Toastmasters club.</h2>
         <p class="mt-4 text-lg text-slate-600">
-          We chartered as <strong>{club.officialName}</strong> — club number {club.clubNumber} — in {
-            charteredLabel
-          }. We are part of District {club.district}, Division {club.division}, Area {club.area}.
+          We chartered as <strong>{club.officialName}</strong> — club number {club.clubNumber} — in
+          {charteredLabel}. We are part of District {club.district}, Division {club.division}, Area
+          {club.area}.
         </p>
         <p class="mt-4 text-slate-600">
           After a quieter chapter, we are revitalising the club and inviting new and returning
           members to help build a thriving speaking community on the Rock — welcoming, supportive,
           and practical.
+        </p>
+        <p class="mt-4 text-slate-600">
+          Members also represent Gibraltar further afield. Paul Gache took
+          <strong>third place</strong> in the Table Topics Contest at the District 107 Fall Summit
+          in Mallorca — proof that practice on the Rock travels well.
         </p>
         <dl class="mt-8 grid grid-cols-2 gap-4 text-sm">
           <div class="rounded-lg bg-white p-4 shadow-sm">
@@ -40,36 +69,19 @@ const charteredLabel = new Date(club.chartered).toLocaleDateString("en-GB", {
           </div>
         </dl>
       </div>
+
       <div class="grid grid-cols-2 gap-3">
-        <Image
-          src={rock}
-          alt="Stylised view of the Rock of Gibraltar at dusk"
-          widths={[240, 480, 800]}
-          sizes="(min-width:1024px) 280px, 50vw"
-          class="aspect-[4/5] h-full w-full rounded-2xl object-cover shadow-md"
-        />
-        <div class="flex flex-col gap-3">
-          <div
-            class="flex aspect-[4/3] w-full items-center justify-center rounded-2xl bg-white p-6 shadow-md"
-          >
+        {
+          gallery.map((item) => (
             <Image
-              src={logo}
-              alt="Gibraltar Speakers club logo"
-              widths={[160, 240]}
-              class="h-28 w-28 rounded-full"
+              src={item.src}
+              alt={item.alt}
+              widths={[240, 480, 800]}
+              sizes="(min-width:1024px) 280px, 45vw"
+              class={`w-full rounded-2xl shadow-md ${item.class}`}
             />
-          </div>
-          <div
-            class="flex aspect-square w-full items-center justify-center rounded-2xl bg-cyan-700/10 p-6 shadow-md"
-          >
-            <Image
-              src={tmLogo}
-              alt="Toastmasters International"
-              widths={[200, 320]}
-              class="h-auto w-full max-w-[200px]"
-            />
-          </div>
-        </div>
+          ))
+        }
       </div>
     </div>
   </div>
