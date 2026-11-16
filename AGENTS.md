@@ -21,7 +21,8 @@ Astro + Tailwind. Content SSOT: `src/data/site.ts`. Docker multi-stage → nginx
 - Site-facing copy uses hyphen-minus `-`, not em dashes
 - Pricing: less than £12/month; £80 first 6 months
 - Socials: Facebook + LinkedIn only (no Instagram / no Find-a-Club)
-- British English; brand colours from club logo (dark blue, maroon, gold)
+- British English; brand colours from Toastmasters palette (dark blue, maroon, gold)
+- Primary brand mark: official Toastmasters International logo (`toastmasters-international.png`)
 
 ## Non-goals v1
 

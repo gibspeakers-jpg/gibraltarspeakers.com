@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import heroImage from "../assets/images/gallery/club-group-meeting.jpg";
-import logo from "../assets/images/club-logo.png";
+import logo from "../assets/images/toastmasters-international.png";
 import { club, meeting, links, openHouse, showOpenHouse } from "../data/site";
 ---
 
@@ -27,7 +27,13 @@ import { club, meeting, links, openHouse, showOpenHouse } from "../data/site";
       <div
         class="mb-6 inline-flex items-center gap-3 rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold backdrop-blur"
       >
-        <Image src={logo} alt="" width={36} height={36} class="h-9 w-9 rounded-full bg-white" />
+        <Image
+          src={logo}
+          alt=""
+          width={72}
+          height={60}
+          class="h-8 w-auto drop-shadow-sm"
+        />
         <span>{club.shortName} Toastmasters &middot; {club.city}</span>
       </div>
 
