@@ -141,12 +141,12 @@ Then point the Cloudflare Tunnel hostname `www.gibraltarspeakers.com` at the con
 
 ## What usually goes wrong
 
-| Symptom | Cause | Fix |
-| --- | --- | --- |
-| `git log` stuck at `8382f6e` | Never pulled latest `main` | `git fetch` + `git reset --hard origin/main` |
-| No `site-version` in HTML | Old image still running | `build --no-cache` + `up -d --force-recreate` |
-| Localhost good, www bad | Tunnel / Cloudflare cache | Fix tunnel target or purge CF cache |
-| Open House still visible | Expected until **17 Nov 2026** (Europe/Gibraltar) | Not a deploy bug |
+| Symptom                      | Cause                                             | Fix                                           |
+| ---------------------------- | ------------------------------------------------- | --------------------------------------------- |
+| `git log` stuck at `8382f6e` | Never pulled latest `main`                        | `git fetch` + `git reset --hard origin/main`  |
+| No `site-version` in HTML    | Old image still running                           | `build --no-cache` + `up -d --force-recreate` |
+| Localhost good, www bad      | Tunnel / Cloudflare cache                         | Fix tunnel target or purge CF cache           |
+| Open House still visible     | Expected until **17 Nov 2026** (Europe/Gibraltar) | Not a deploy bug                              |
 
 ---
 
