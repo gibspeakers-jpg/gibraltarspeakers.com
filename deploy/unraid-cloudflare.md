@@ -1,5 +1,7 @@
 # Deploy on Unraid + Cloudflare Tunnel
 
+**Redeploying after a content change?** Use the copy-paste checklist: [unraid-redeploy.md](./unraid-redeploy.md).
+
 This site is a static Astro build served by nginx on port **8080**. It is designed to sit behind a Cloudflare Tunnel (or Unraid Cloudflare Tunnel plugin) without GitHub Pages.
 
 **Canonical URL:** `https://www.gibraltarspeakers.com` (used in sitemap, OG, and `<link rel="canonical">`).

@@ -29,7 +29,10 @@ docker compose up -d --build
 # Health: http://HOST:1212/healthz
 ```
 
-Point the Cloudflare Tunnel public hostname `www.gibraltarspeakers.com` at `http://gibraltar-speakers:8080` (or the published host port). Full notes: [deploy/unraid-cloudflare.md](./deploy/unraid-cloudflare.md).
+Point the Cloudflare Tunnel public hostname `www.gibraltarspeakers.com` at `http://gibraltar-speakers:8080` (or the published host port).
+
+- **Redo / update deploy (copy-paste):** [deploy/unraid-redeploy.md](./deploy/unraid-redeploy.md)
+- Tunnel / DNS notes: [deploy/unraid-cloudflare.md](./deploy/unraid-cloudflare.md)
 
 ## Project structure
 

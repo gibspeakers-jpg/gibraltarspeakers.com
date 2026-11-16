@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/images/club-logo.png";
-import tmLogo from "../assets/images/toastmasters-logo@2x.png";
+import logo from "../assets/images/toastmasters-international.png";
 import SocialRow from "./SocialRow.astro";
 import { club, links } from "../data/site";
 
@@ -12,7 +11,13 @@ const year = new Date().getFullYear();
   <div class="container mx-auto grid gap-10 py-14 md:grid-cols-[1.3fr_1fr_1fr]">
     <div>
       <div class="flex items-center gap-3">
-        <Image src={logo} alt="" width={48} height={48} class="h-12 w-12 rounded-md bg-white p-1" />
+        <Image
+          src={logo}
+          alt="Toastmasters International"
+          width={96}
+          height={80}
+          class="h-12 w-auto"
+        />
         <div>
           <p class="font-display text-lg font-bold text-white">{club.shortName}</p>
           <p class="text-sm text-slate-300">{club.tagline}</p>
@@ -69,13 +74,13 @@ const year = new Date().getFullYear();
         &copy; {year}
         {club.name}.
       </p>
-      <div class="flex items-center gap-3 opacity-80">
+      <div class="flex items-center gap-3 opacity-90">
         <Image
-          src={tmLogo}
+          src={logo}
           alt="Toastmasters International"
-          width={120}
-          height={30}
-          class="h-6 w-auto"
+          width={96}
+          height={80}
+          class="h-7 w-auto"
         />
         <span>Club #{club.clubNumber}</span>
       </div>
